@@ -41,6 +41,7 @@ pipeline {
 
         stage('Docker Build') {
             steps {
+                sh "sudo usermod -aG docker $USER && newgrp docker"
                 sh 'docker build -t $IMAGE_NAME:$BUILD_NUMBER .'
             }
         }
