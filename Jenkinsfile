@@ -8,7 +8,6 @@ pipeline {
 
     environment {
         IMAGE_NAME = "swapnilglobantdevops/devsecops-app"
-        TAG = $"{BUILD_NUMBER}"
     }
     stages {
 
@@ -41,12 +40,10 @@ pipeline {
         }
 
         stage('Docker Build') {
-            steps {
-                echo "IMAGE_NAME=${IMAGE_NAME}"
-                echo "TAG=${TAG}"
-                sh 'docker build -t $IMAGE_NAME: $TAG .'
-            }
-        }
+                    steps {
+                        sh 'docker build -t $IMAGE_NAME:$BUILD_NUMBER .'
+                    }
+                }
 
         stage('Image Scan - Trivy') {
             steps {
