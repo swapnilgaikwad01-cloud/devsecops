@@ -6,6 +6,9 @@ pipeline {
        //jdk 'jdk21'
     }
 
+    environment {
+        IMAGE_NAME = "swapnilglobantdevops/devsecops-app"
+    }
     stages {
 
        /* stage('Checkout') {
