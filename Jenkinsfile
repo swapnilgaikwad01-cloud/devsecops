@@ -8,6 +8,7 @@ pipeline {
 
     environment {
         IMAGE_NAME = "swapnilglobantdevops/devsecops-app"
+        TAG = $"{BUILD_NUMBER}"
     }
     stages {
 
@@ -41,8 +42,9 @@ pipeline {
 
         stage('Docker Build') {
             steps {
-                sh "usermod -aG docker $USER && newgrp docker"
-                sh 'docker build -t $IMAGE_NAME:$BUILD_NUMBER .'
+                echo "IMAGE_NAME=${IMAGE_NAME}"
+                echo "TAG=${TAG}"
+                sh 'docker build -t $IMAGE_NAME: $TAG .'
             }
         }
 
