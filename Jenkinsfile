@@ -14,7 +14,7 @@ pipeline {
 
         stage('Checkout') {
             steps {
-                git 'https://github.com/YOUR_USERNAME/devsecops-java-k8s.git'
+                git 'https://github.com/swapnilgaikwad01-cloud/devsecops.git'
             }
         }
 
