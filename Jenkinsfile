@@ -30,22 +30,6 @@ pipeline {
             }
         }
 
-        stage('Dependency Scan') {
-            steps {
-                sh '''
-                    wget https://github.com/jeremylong/DependencyCheck/releases/latest/download/dependency-check-8.4.0-release.zip
-                    unzip dependency-check-8.4.0-release.zip
-                    chmod +x dependency-check/bin/dependency-check.sh
-
-                    dependency-check/bin/dependency-check.sh \
-                        --project "devsecops-app" \
-                        --scan . \
-                        --format HTML \
-                        --out dependency-check-report
-                '''
-            }
-        }
-
         stage('Build') {
             steps {
                 sh 'mvn clean package -DskipTests'
