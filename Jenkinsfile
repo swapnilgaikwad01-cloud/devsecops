@@ -13,6 +13,7 @@ pipeline {
         stage('Secret Scan') {
             steps {
                 sh 'gitleaks detect --source .'
+                echo "Secret detected in the code"
             }
         }
 
