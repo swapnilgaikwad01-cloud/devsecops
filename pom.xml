@@ -1,47 +1,79 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+         http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.demo</groupId>
     <artifactId>devsecops-app</artifactId>
     <version>1.0</version>
+    <packaging>jar</packaging>
 
+    <name>DevSecOps App</name>
+    <description>Demo project for DevSecOps pipeline</description>
+
+    <!-- Spring Boot Parent -->
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.7.5</version>
+        <relativePath/>
     </parent>
 
+    <!-- Properties (single block - fixed) -->
     <properties>
-        <sonar.projectKey>sonar-test</sonar.projectKey>
-        <sonar.projectName>Sonar Test Project</sonar.projectName>
+        <java.version>17</java.version>
+
+        <!-- SonarQube Config -->
+        <sonar.projectKey>devsecops-app</sonar.projectKey>
+        <sonar.projectName>DevSecOps App</sonar.projectName>
         <sonar.host.url>http://15.206.79.53:9000</sonar.host.url>
     </properties>
 
-    <properties>
-        <java.version>17</java.version>
-        <sonar.projectKey>devsecops-app</sonar.projectKey>
-    </properties>
-
+    <!-- Dependencies -->
     <dependencies>
+
+        <!-- Spring Boot Web -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-        <!-- Intentional vulnerable dependency -->
+        <!-- Intentional vulnerable dependency for demo -->
         <dependency>
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
             <version>1.2.17</version>
         </dependency>
+
+        <!-- Optional: Testing -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
     </dependencies>
 
+    <!-- Build Plugins -->
     <build>
         <plugins>
+
+            <!-- Spring Boot Plugin -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+
+            <!-- Sonar Maven Plugin (optional but recommended) -->
+            <plugin>
+                <groupId>org.sonarsource.scanner.maven</groupId>
+                <artifactId>sonar-maven-plugin</artifactId>
+                <version>3.10.0.2594</version>
+            </plugin>
+
         </plugins>
     </build>
+
 </project>
