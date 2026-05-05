@@ -12,7 +12,7 @@ public class App {
     public String hello() {
         return "DevSecOps Pipeline Working!";
     }
-
+    String password = "mysecret123";
     public static void main(String[] args) {
         SpringApplication.run(App.class, args);
     }

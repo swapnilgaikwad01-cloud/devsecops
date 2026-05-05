@@ -3,12 +3,12 @@ pipeline {
 
     stages {
 
-        stage('Checkout') {
+       /* stage('Checkout') {
             steps {
                 git 'https://github.com/swapnilgaikwad01-cloud/devsecops.git'
                 echo "Repo cloend successfully"
             }
-        }
+        } */
 
         stage('Secret Scan') {
             steps {
