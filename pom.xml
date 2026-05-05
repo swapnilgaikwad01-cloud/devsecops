@@ -12,6 +12,12 @@
     </parent>
 
     <properties>
+        <sonar.projectKey>sonar-test</sonar.projectKey>
+        <sonar.projectName>Sonar Test Project</sonar.projectName>
+        <sonar.host.url>http://15.206.79.53:9000</sonar.host.url>
+    </properties>
+
+    <properties>
         <java.version>17</java.version>
         <sonar.projectKey>devsecops-app</sonar.projectKey>
     </properties>
