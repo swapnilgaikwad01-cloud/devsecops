@@ -1,20 +1,12 @@
 pipeline {
     agent any
 
-    tools {
-        maven 'maven3'
-        jdk 'jdk17'
-    }
-
-    environment {
-        IMAGE_NAME = "YOUR_DOCKERHUB_USERNAME/devsecops-app"
-    }
-
     stages {
 
         stage('Checkout') {
             steps {
                 git 'https://github.com/swapnilgaikwad01-cloud/devsecops.git'
+                echo "Repo cloend successfully"
             }
         }
 
