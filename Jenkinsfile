@@ -32,7 +32,10 @@ pipeline {
 
         stage('Dependency Scan') {
             steps {
-                sh './security/dependency-check.sh'
+                sh '''
+                            chmod +x security/dependency-check.sh
+                            ./security/dependency-check.sh
+                        '''
             }
         }
 
